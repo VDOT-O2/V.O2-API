@@ -1,4 +1,4 @@
-# V.02 REST API documentation
+# [BETA version] V.02 REST API documentation
 
 ## V.02 REST API Overview
 
