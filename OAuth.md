@@ -14,17 +14,18 @@ The authorization code grant type is used to obtain both access tokens and refre
 
 The client initiates the flow by directing the resource owner's user-agent to the authorization endpoint. The client includes its client identifier, requested scope, local state, and a redirection URI to which the authorization server will send the user-agent back once access is granted (or denied).
 
-`https://vdoto2.com/oauth/authorize?client_id=test_client_&redirect_uri=https%3A%2F%2Fvdoto2.com&response_type=code&scope=workouts`
+`https://vdoto2.com/oauth/authorize?client_id=test_client_&redirect_uri=https%3A%2F%2Fvdoto2.com&response_type=code&scope=read:workouts`
 
 The client requests an access token from the authorization server's token endpoint by including the authorization code received in the previous step. When making the request, the client authenticates with the authorization server. The client includes the redirection URI used to obtain the authorization code for verification.
 
 ```
 
 curl --compressed -v https://vdoto2.com/oauth/token \
-	-u test_client_1:test_secret \
+	-d client_id=your_client_id \
+	-d client_secret=your_client_secret \
 	-d "grant_type=authorization_code" \
 	-d "code=7afb1c55-76e4-4c76-adb7-9d657cb47a27" \
-	-d "redirect_uri=https://vdoto2.com"
+	-d "redirect_uri=https://yourdomain.com"
 
 ```
 
@@ -32,11 +33,9 @@ The authorization server authenticates the client, validates the authorization c
 
 ```json
 {
-  "user_id": 1,
   "access_token": "00ccd40e-72ca-4e79-a4b6-67c95e2e3f1c",
   "expires_in": 3600,
   "token_type": "Bearer",
-  "scope": "workouts",
   "refresh_token": "6fd8d272-375a-4d8a-8d0f-43367dc8b791"
 }
 ```
