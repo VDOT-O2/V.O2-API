@@ -12,7 +12,7 @@ Please contact us in case you would like to integrate your product with our V.02
 
 We provide you a sandbox environment for testing purposes.
 To access sandbox or production environment please use following host names:
-> - Sandbox: https://sandbox.vdoto2.com
+> - Sandbox: https://staging.vdoto2.com
 > - Production: https://vdoto2.com
 
 ## Endpoints
